@@ -10,26 +10,35 @@ Este arquivo já esta pronto e você pode mandar para quem quiser
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Namora comigo?</title>
 </head>
 
 <body>
-    <div id="conteudo">
-        <h2>Aceita namorar comigo?</h2>
-        <div style="margin: auto;width: 170px;">
-            <button style="position: fixed;display: block;" class="btn" onclick="sim()">SIM</button>
-            <button class="btn" onclick="desvia(this)" onmouseover="desvia(this)" style="position: absolute;">NÃO</button>
+    <div style="margin-top: 10em;">
+        <h2>Maria Júlia Pachelli aceita namorar comigo?</h2>
+        <div>
+            <div class="d-flex">
+                <button class="btn" style="position: absolute; left: 800px;" onclick="sim()">SIM</button>
+                <button class="btn" onclick="desvia(this)" onmouseover="desvia(this)" style="position: absolute; left: 1000px;">NÃO</button>
+            </div>
+            <div class="aceitou" style="display: none; margin-top: 5em;">
+                <h1 style="font-weight: 800;">Agora oficialmente somos namorados!!!</h1>
+                <h4>Você terá que me aturar pra sempre!!!</h4>
+                <audio id="myAudio">
+                    <source src="George Michael - Careless Whisper (Official Video) (256 kbps).mp3" type="audio/mpeg">
+                </audio>
+                <img src="https://media.tenor.com/O_QQJ3LzKugAAAAC/bob-esponja.gif" alt="" srcset="">
+                <p>bob esponja pq eu sei q vc ama esse desenho</p>
+            </div>
         </div>
     </div>
 </body>
 <style>
-    #conteudo {
+    body {
         background: #ff7a7a;
         width: 100%;
         height: 100%;
-        position: fixed;
-        top: 0;
-        left: 0;
         padding: 10px;
         text-align: center;
         font-family: sans-serif;
@@ -46,15 +55,15 @@ Este arquivo já esta pronto e você pode mandar para quem quiser
 </style>
 
 <script>
+
     function sim() {
-        alert("Você aceitou namorar comigo! :)");
-        // redireciona para um URL após clicar no SIM
-        location.href = "https://music.youtube.com/watch?v=izGwDsrQ1eQ";
+        const aceitou = document.querySelector(".aceitou")
+        const myAudio = document.querySelector("#myAudio")
+        myAudio.play()
+        aceitou.style.display = "block"
     }
 
     function desvia(btn) {
-        // btn declarado na função
-        btn.style.position = 'absolute';
         btn.style.bottom = geraPosicao(10, 90);
         btn.style.left = geraPosicao(10, 90);
         console.log('opa, desviei...');
@@ -63,10 +72,6 @@ Este arquivo já esta pronto e você pode mandar para quem quiser
     function geraPosicao(min, max) {
         return (Math.random() * (max - min) + min) + "%";
     }
-
-    /* Apague se quiser, isso apenas escreve MTHS1901 e o link para o tutorial no console */
-    const o = "MTHS1901", e = 90, l = "bold"; console.log(`%c${o}`, "font-size: 90px; font-weight: bold; background: linear-gradient(90deg, red, yellow);"), console.log("Tutorial: https://www.youtube.com/watch?v=zxxB9SFh9p4");
-
 </script>
 
 </html>
